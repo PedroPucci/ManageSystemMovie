@@ -9,5 +9,6 @@ namespace ManageSystemMovie.Repository.Repository.Interfaces
         Movie DeleteMovieAsync(Movie movieDelete);
         Task<List<Movie>> GetAllMoviesAsync();
         Task<Movie> GetMovieByNameAsync(string name);
+        Task<Movie> GetMovieByIdAsync(int? id);
     }
 }

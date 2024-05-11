@@ -47,5 +47,10 @@ namespace ManageSystemMovie.Repository.Repository
             var response = _context.Movie.Update(movie);
             return response.Entity;
         }
+
+        public async Task<Movie> GetMovieByIdAsync(int? id)
+        {
+            return await _context.Movie.FirstOrDefaultAsync(movie => movie.Id == id);
+        }
     }
 }

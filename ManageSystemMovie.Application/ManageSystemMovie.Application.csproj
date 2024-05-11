@@ -35,6 +35,7 @@
   <ItemGroup>
     <ProjectReference Include="..\ManageSystemMovie.Domain\ManageSystemMovie.Domain.csproj" />
     <ProjectReference Include="..\ManageSystemMovie.Repository\ManageSystemMovie.Repository.csproj" />
+    <ProjectReference Include="..\ManageSystemMovie.Shared\ManageSystemMovie.Shared.csproj" />
   </ItemGroup>
 
 </Project>
