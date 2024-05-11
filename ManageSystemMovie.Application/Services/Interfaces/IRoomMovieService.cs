@@ -4,10 +4,10 @@ namespace ManageSystemMovie.Application.Services.Interfaces
 {
     public interface IRoomMovieService
     {
-        Task<RoomMovie> AddRoomMovie(RoomMovie roomMovie);
+        Task<Result<RoomMovie>> AddRoomMovie(RoomMovie roomMovie);
         Task<RoomMovie> UpdateRoomMovie(RoomMovie roomMovie);
         Task DeleteRoomMovieAsync(int roomMovieId);
         Task<List<RoomMovie>> GetAllRoomMovies();
-        Task<RoomMovie> GetAllRoomMovieByNumber(int name);
+        Task<RoomMovie> GetAllRoomMovieByNumber(int number);
     }
 }
