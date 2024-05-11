@@ -53,7 +53,7 @@ namespace ManageSystemMovie.Controllers
             return Ok(movies);
         }
 
-        [HttpGet("{firstName}")]
+        [HttpGet("{name}")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Movie>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> GetAllMovieByFirstName(string name)
