@@ -1,6 +1,7 @@
 ﻿using ManageSystemMovie.Domain.Entities;
 using ManageSystemMovie.Repository.Connections;
 using ManageSystemMovie.Repository.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace ManageSystemMovie.Repository.Repository
 {
@@ -13,34 +14,43 @@ namespace ManageSystemMovie.Repository.Repository
             _context = context;
         }
 
-        public Task<RoomMovie> AddRoomMovieAsync(RoomMovie roomMovie)
+        public async Task<RoomMovie> AddRoomMovieAsync(RoomMovie roomMovie)
         {
-            throw new NotImplementedException();
+            var result = await _context.RoomMovie.AddAsync(roomMovie);
+            return result.Entity;
         }
 
         public RoomMovie DeleteRoomMovieAsync(RoomMovie roomMovieDelete)
         {
-            throw new NotImplementedException();
+            var response = _context.RoomMovie.Remove(roomMovieDelete);
+            return response.Entity;
         }
 
-        public Task<List<RoomMovie>> GetAllRoomMoviesAsync()
+        public async Task<List<RoomMovie>> GetAllRoomMoviesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.RoomMovie
+                .OrderBy(roomMovie => roomMovie.Number)
+                .Select(roomMovie => new RoomMovie
+                {
+                    Number = roomMovie.Number,
+                    Description = roomMovie.Description
+                }).ToListAsync();
+            }
+
+        public async Task<RoomMovie> GetRoomMovieByIdAsync(int? id)
+        {
+            return await _context.RoomMovie.FirstOrDefaultAsync(roomMovie => roomMovie.Id == id);
         }
 
-        public Task<RoomMovie> GetRoomMovieByIdAsync(int? id)
+        public async Task<RoomMovie> GetRoomMovieByNumberAsync(int numberRoomMovie)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<RoomMovie> GetRoomMovieByNumberAsync(int numberRoomMovie)
-        {
-            throw new NotImplementedException();
+            return await _context.RoomMovie.FirstOrDefaultAsync(roomMovie => roomMovie.Number == numberRoomMovie);
         }
 
         public RoomMovie UpdateRoomMovieAsync(RoomMovie roomMovie)
         {
-            throw new NotImplementedException();
+            var response = _context.RoomMovie.Update(roomMovie);
+            return response.Entity;
         }
     }
 }

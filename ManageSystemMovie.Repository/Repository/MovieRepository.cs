@@ -1,6 +1,7 @@
 ﻿using ManageSystemMovie.Domain.Entities;
 using ManageSystemMovie.Repository.Connections;
 using ManageSystemMovie.Repository.Repository.Interfaces;
+using Microsoft.EntityFrameworkCore;
 
 namespace ManageSystemMovie.Repository.Repository
 {
@@ -13,29 +14,38 @@ namespace ManageSystemMovie.Repository.Repository
             _context = context;
         }
 
-        public Task<Movie> AddMovieAsync(Movie movie)
+        public async Task<Movie> AddMovieAsync(Movie movie)
         {
-            throw new NotImplementedException();
+            var result = await _context.Movie.AddAsync(movie);
+            return result.Entity;
         }
 
         public Movie DeleteMovieAsync(Movie movieDelete)
-        {
-            throw new NotImplementedException();
+        {            
+            var response = _context.Movie.Remove(movieDelete);
+            return response.Entity;
         }
 
-        public Task<List<Movie>> GetAllMoviesAsync()
+        public async Task<List<Movie>> GetAllMoviesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Movie
+                .OrderBy(movie => movie.Name)
+                .Select(movie => new Movie
+                {
+                    Name = movie.Name,
+                    Director = movie.Director
+                }).ToListAsync();
         }
 
-        public Task<Movie> GetMovieByNameAsync(string name)
+        public async Task<Movie> GetMovieByNameAsync(string name)
         {
-            throw new NotImplementedException();
+            return await _context.Movie.FirstOrDefaultAsync(movie => movie.Name == name);
         }
 
         public Movie UpdateMovieAsync(Movie movie)
         {
-            throw new NotImplementedException();
+            var response = _context.Movie.Update(movie);
+            return response.Entity;
         }
     }
 }
