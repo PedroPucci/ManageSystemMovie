@@ -178,3 +178,6 @@ Em seguida, certifique-se de que a camada da API esteja definida como o projeto 
 
 ## Execução dos testes
 Para executar os testes, é necessário instalar o Xunit. Para isso, vá até "Manage NuGet Packages" clicando com o botão direito sobre a solução e procure por "xunit", então instale-o. Em seguida, vá até o menu "Test" e execute todos os testes.
+
+# Logs
+É gerado diariamente o log do fluxo do sistema, gravado na pasta do projeto Loqs dentro da camada da API e também é excluído no termino do dia.
