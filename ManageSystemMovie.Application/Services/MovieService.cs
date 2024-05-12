@@ -44,6 +44,7 @@ namespace ManageSystemMovie.Application.Services
             }
             finally
             {
+                Log.Error("Message: Add with success Movie");
                 transaction.Dispose();
             }
         }
@@ -73,6 +74,7 @@ namespace ManageSystemMovie.Application.Services
             }
             finally
             {
+                Log.Error("Message: Delete with success Movie");
                 transaction.Dispose();
             }
         }
@@ -109,6 +111,7 @@ namespace ManageSystemMovie.Application.Services
             }
             finally
             {
+                Log.Error("Message: GetAllMovie with success Movie");
                 transaction.Dispose();
             }
         }
@@ -130,6 +133,7 @@ namespace ManageSystemMovie.Application.Services
             }
             finally
             {
+                Log.Error("Message: GetMovie with success Movie");
                 transaction.Dispose();
             }
         }
@@ -175,6 +179,7 @@ namespace ManageSystemMovie.Application.Services
             }
             finally
             {
+                Log.Error("Message: Uptade with success Movie");
                 transaction.Dispose();
             }
         }

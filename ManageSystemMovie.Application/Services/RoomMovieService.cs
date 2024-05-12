@@ -44,6 +44,7 @@ namespace ManageSystemMovie.Application.Services
             }
             finally
             {
+                Log.Error("Message: Add with success RoomMovie");
                 transaction.Dispose();
             }
         }
@@ -73,6 +74,7 @@ namespace ManageSystemMovie.Application.Services
             }
             finally
             {
+                Log.Error("Message: Delete with success RoomMovie");
                 transaction.Dispose();
             }
         }
@@ -101,6 +103,7 @@ namespace ManageSystemMovie.Application.Services
             }
             finally
             {
+                Log.Error("Message: GetAllRoomMovieByNumber with success RoomMovie");
                 transaction.Dispose();
             }
         }
@@ -122,6 +125,7 @@ namespace ManageSystemMovie.Application.Services
             }
             finally
             {
+                Log.Error("Message: GetAll with success RoomMovie");
                 transaction.Dispose();
             }
         }
@@ -158,6 +162,7 @@ namespace ManageSystemMovie.Application.Services
             }
             finally
             {
+                Log.Error("Message: Upated with success RoomMovie");
                 transaction.Dispose();
             }
         }
