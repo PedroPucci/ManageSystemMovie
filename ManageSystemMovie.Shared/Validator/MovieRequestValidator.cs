@@ -17,8 +17,12 @@ namespace ManageSystemMovie.Shared.Validator
             RuleFor(p => p.Director)
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty()
-                .MinimumLength(10)
                 .WithMessage(MovieErrors.Movie_Error_DirectorCanNotBeNullOrEmpty.Description());
+
+            RuleFor(p => p.Director)
+                .Cascade(CascadeMode.Stop)                
+                .MinimumLength(10)
+                .WithMessage(MovieErrors.Movie_Error_DirectorOnyTenLetters.Description());
         }
     }
 }

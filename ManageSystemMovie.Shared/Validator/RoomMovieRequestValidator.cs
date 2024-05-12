@@ -11,8 +11,11 @@ namespace ManageSystemMovie.Shared.Validator
         {
             RuleFor(p => p.Description)
                 .NotEmpty()
-                .MinimumLength(4)
                 .WithMessage(RoomMovieErrors.RoomMovie_Error_DescriptionCanNotBeNullOrEmpty.Description());
+
+            RuleFor(p => p.Description)
+                .MinimumLength(10)
+                .WithMessage(RoomMovieErrors.RoomMovie_Error_DescriptionCanNotLessTenLetters.Description());
         }
     }
 }
