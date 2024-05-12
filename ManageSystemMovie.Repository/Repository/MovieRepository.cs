@@ -33,7 +33,8 @@ namespace ManageSystemMovie.Repository.Repository
                 .Select(movie => new Movie
                 {
                     Name = movie.Name,
-                    Director = movie.Director
+                    Director = movie.Director,
+                    TimeMovie = movie.TimeMovie
                 }).ToListAsync();
         }
 

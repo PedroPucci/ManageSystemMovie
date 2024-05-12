@@ -28,7 +28,7 @@ namespace ManageSystemMovie.Application.Services
                     return Result<Movie>.Error(isValidMovie.Message);
                 }
 
-                movie.ModificationDate = DateTime.UtcNow;
+                movie.ModificationDate = DateTime.UtcNow;                
                 var result = await _repositoryUoW.MovieRepository.AddMovieAsync(movie);
 
                 await _repositoryUoW.SaveAsync();
@@ -159,6 +159,7 @@ namespace ManageSystemMovie.Application.Services
 
                 movieByName.Director = movie.Director;
                 movieByName.ModificationDate = DateTime.Now;
+                movieByName.TimeMovie = movie.TimeMovie;
 
                 var result = _repositoryUoW.MovieRepository.UpdateMovieAsync(movieByName);
 
