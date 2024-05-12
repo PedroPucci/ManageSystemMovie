@@ -1,6 +1,7 @@
 ﻿using ManageSystemMovie.Application.Services.General;
 using ManageSystemMovie.Repository.Connections;
 using ManageSystemMovie.Repository.Repository.General;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using System.Text.Json.Serialization;
 
@@ -24,7 +25,7 @@ namespace ManageSystemMovie.Extensions
             );
             services.AddDbContext<DataContext>(opt =>
             {
-                //opt.UseMySql(config.GetConnectionString("WebApiDatabase"));
+                opt.UseMySQL(config.GetConnectionString("WebApiDatabase"));
             });
             services.AddCors(opt =>
             {

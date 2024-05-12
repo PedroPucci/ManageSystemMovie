@@ -15,8 +15,9 @@ namespace ManageSystemMovie.Repository.Connections
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //if (!optionsBuilder.IsConfigured)
-            //    optionsBuilder.UseMySql(Configuration.GetConnectionString("WebApiDatabase"));
+            string connectionString = Configuration.GetConnectionString("WebApiDatabase");
+            ServerVersion serverVersion = ServerVersion.AutoDetect(connectionString);
+            optionsBuilder.UseMySql(connectionString, serverVersion);
         }
 
         public DbSet<Movie> Movie { get; set; }
