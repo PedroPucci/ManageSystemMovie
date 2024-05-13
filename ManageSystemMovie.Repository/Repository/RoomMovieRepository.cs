@@ -22,6 +22,7 @@ namespace ManageSystemMovie.Repository.Repository
 
         public RoomMovie DeleteRoomMovieAsync(RoomMovie roomMovieDelete)
         {
+            _context.Movie.RemoveRange(roomMovieDelete.Movies);
             var response = _context.RoomMovie.Remove(roomMovieDelete);
             return response.Entity;
         }

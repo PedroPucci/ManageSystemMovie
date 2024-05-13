@@ -30,8 +30,8 @@ namespace ManageSystemMovie.Controllers
         [ProducesDefaultResponseType]
         public async Task<IActionResult> UpdateMovie([FromBody] RoomMovie roomMovie)
         {
-            RoomMovie updateRoomMovie = await _serviceUoW.RoomMovieService.UpdateRoomMovie(roomMovie);
-            return Ok(updateRoomMovie);
+            var result = await _serviceUoW.RoomMovieService.UpdateRoomMovie(roomMovie);
+            return Ok(result);
         }
 
         [HttpDelete("{id}")]

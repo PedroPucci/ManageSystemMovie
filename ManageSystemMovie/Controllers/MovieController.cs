@@ -31,7 +31,7 @@ namespace ManageSystemMovie.Controllers
         public async Task<IActionResult> UpdateMovie([FromBody] Movie movie)
         {
            var result = await _serviceUoW.MovieService.UpdateMovie(movie);
-            return result.Success ? Ok(result) : BadRequest(result);
+           return result.Success ? Ok(result) : BadRequest(result);
         }
 
         [HttpDelete("{id}")]
